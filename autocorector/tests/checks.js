@@ -3,17 +3,17 @@
 // IMPORTS
 const path = require("path");
 const util = require('util');
-const Utils = require("./testutils");
+const Utils = require("../utils/testutils");
 const exec = util.promisify(require('child_process').exec);
 
-const node_modules = path.resolve(path.join(__dirname, "../", "node_modules"));
+const node_modules = path.resolve(path.join(__dirname, "../../", "node_modules"));
 var sequelize;
 
 let Controller;
 let Hospital;
 let Patient;
 let Doctor;
-const models_lib = require('../models/models.js');
+const models_lib = require('../../models/models.js');
 
 const T_TEST = 2 * 60
 
