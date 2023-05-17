@@ -31,7 +31,11 @@ exports.configure_db = async function(db) {
   ///////
 
   // Rellene aqui para realizar las asociaciones entre los modelos anteriores
-
+  
+  // Puede comprobar por cada modelo las funciones auxiliares creadas gracias a 
+  // la asociacion usando la funcion checkAssociations
+  // Ej: checkAssociations(Patient)
+  
   ///////
 
 
@@ -41,4 +45,12 @@ exports.configure_db = async function(db) {
     Doctor:  Doctor
   }
 
+}
+
+function checkAssociations(model) {
+  for (let assoc of Object.keys(model.associations)) {
+      for (let accessor of Object.keys(model.associations[assoc].accessors)) {
+        console.log(model.name + '.' + model.associations[assoc].accessors[accessor]+'()');
+      }
+    }
 }
