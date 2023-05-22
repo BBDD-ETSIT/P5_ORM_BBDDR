@@ -250,7 +250,7 @@ En cuanto a las funciones que debe editar en controller.js debe hacer lo siguien
 **Parametros:**
 
 - patient_id - Id del paciente
-- hospital_id - Id del hospital
+- doctor_id - Id del doctor
 
 **Returns:**
 
