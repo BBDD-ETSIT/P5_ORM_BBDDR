@@ -8,16 +8,19 @@ module.exports = function (models) {
     // Buscar todos los hospitales
     module.list_hospitals = async function() {
         // Rellene aqui ...
+        
     }
 
     // Filtra los hospitales por ciudad
     module.filterHospitalsByCity = async function (city) {
         // Rellene aqui ...
+
     }
 
     // Limita el numero de hospitales mostrados
     module.filterHospitalsByNumber = async function (limit) {
         // Rellene aqui ...
+
     }
 
     // Buscar pacientes de un hospital ordenadors por el nombre (de la A a la Z)

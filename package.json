@@ -8,7 +8,7 @@
     "githubURL": "BBDD-ETSIT/P5_ORM_BBDDR",
     "serverUrl": "https://aat.dit.upm.es/",
     "courseId": "2110",
-    "assignmentId": "7838"
+    "assignmentId": "447"
   },
   "scripts": {
     "start": "node rest_server.js",
