@@ -41,6 +41,17 @@ app.post('/hospitals/filterByCity', async (req, res, next) => {
 	res.render('index_hospitals', {hospitals: hospitals});
 });
 
+app.post('/hospitals/filterByNumber', async (req, res, next) => {
+    let hospitals = await Controller.filterHospitalsByNumber(Number(req.body.limit)).catch(e => next(e))
+	res.render('index_hospitals', {hospitals: hospitals});
+});
+
+app.get('/counting', async (req, res, next) => {
+	let counting = await Controller.counting().catch(e => next(e));
+	console.log(counting)
+	res.render('counting', {hospitals: counting?.nHospitals, patients: counting?.nPatients, doctors: counting?.nDoctors});
+})
+
 app.get('/hospitals/:hospitalId/patients', async (req, res, next) => {
     let patients = await Controller.list_hospital_patients(req.params.hospitalId).catch(e => next(e));
     res.render('index_patients', {patients: patients, hospital: req.params.hospitalId, patientDeleted: req.query.patientDeleted});

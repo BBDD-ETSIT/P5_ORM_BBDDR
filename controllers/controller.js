@@ -15,6 +15,11 @@ module.exports = function (models) {
         // Rellene aqui ...
     }
 
+    // Limita el numero de hospitales mostrados
+    module.filterHospitalsByNumber = async function (limit) {
+        // Rellene aqui ...
+    }
+
     // Buscar pacientes de un hospital ordenadors por el nombre (de la A a la Z)
     module.list_hospital_patients = async function(hospital_id) {
         // Rellene aqui ...
@@ -47,6 +52,11 @@ module.exports = function (models) {
 
     // Muestras los medicos de un paciente
     module.showPatientDoctors = async function (patient_id) {
+        // Rellene aqui ...
+    }
+
+    // Filtra los hospitales por ciudad
+    module.counting = async function () {
         // Rellene aqui ...
     }
 

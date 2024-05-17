@@ -84,11 +84,16 @@ $ npm install
 A continuación deben configurarse los datos de acceso a MySQL mediante las variables de entorno:
 
 ```
-[LINUX/MAC] $ export MYSQL_USER="<username>";
-[LINUX/MAC] $ export MYSQL_PASS="<password>";
+[LINUX/MAC] $ export MYSQL_USER="<username>"
+[LINUX/MAC] $ export MYSQL_PASS="<password>"
 
-[WINDOWS] > set MYSQL_USER="<username>";
-[WINDOWS] > set MYSQL_PASS="<password>";
+[WINDOWS] > set MYSQL_USER="<username>"
+[WINDOWS] > set MYSQL_PASS="<password>"
+
+Otra opcion para Windows si se usa Powershell:
+
+[WINDOWS] > $env:MYSQL_USER="<username>"
+[WINDOWS] > $env:MYSQL_PASS="<password>"
 ```
 
 Teniendo arrancado MySQL, creamos la base de datos con:
@@ -161,11 +166,24 @@ En cuanto a las funciones que debe editar en controller.js debe hacer lo siguien
 ### filterHospitalsByCity(city)
 
 **Descipcion:**
-- Busca en la colección "Hospital" filtrando por ciudad
+- Busca en la tabla "Hospital" filtrando por ciudad
 
 **Parametros:**
 
 - city - ciudad a buscar
+
+**Returns:**
+
+- Un array de objetos de hospitales
+
+### filterHospitalsByNumber(limit)
+
+**Descipcion:**
+- Busca en la tabla "Hospital" limitando el numero de registros obtenidos en base a "limit"
+
+**Parametros:**
+
+- limit - numero máximo de hospitales a obtener
 
 **Returns:**
 
@@ -269,6 +287,26 @@ En cuanto a las funciones que debe editar en controller.js debe hacer lo siguien
 
 - Un array de objetos de doctores 
 
+### counting()
+
+**Descipcion:**
+- Devuelve el numero de hospitales, doctores y pacientes que hay en la base de datos
+
+**Parametros:**
+
+-  Ninguno
+
+**Returns:**
+
+- Un objeto con la siguiente sintaxis:
+
+```
+{
+  nHospitals: 6
+  nPatients: 4
+  nDoctors: 5
+}
+```
 
 ## 6. Prueba de la práctica 
 
@@ -294,7 +332,8 @@ $ npx autocorector --upload
 El alumno podrá subir al Moodle la entrega tantas veces como desee pero se quedará registrada solo la última subida.
 
 **RÚBRICA**: Cada método que se pide resolver de la practica se puntuara de la siguiente manera:
--  **1 punto por cada uno de las siguientes funciones realizadas:**  list_hospitals, filterHospitalsByCity, list_hospital_patients, read, create, update y delete
--  **1,5 puntos por cada uno de las siguientes funciones realizadas:**  assignDoctor y showPatientDoctors 
+-  **0.5 punto por cada uno de las siguientes funciones realizadas:**  list_hospitals, filterHospitalsByCity y filterHospitalsByNumber
+-  **1 punto por cada uno de las siguientes funciones realizadas:**  list_hospital_patients, read, create, update, delete, counting y showPatientDoctors 
+-  **1,5 puntos por cada uno de las siguientes funciones realizadas:**  assignDoctor
 
 Si pasa todos los tests se dará la máxima puntuación. 

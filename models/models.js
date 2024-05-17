@@ -26,7 +26,7 @@ exports.configure_db = async function(db) {
   const Hospital = sequelize.import(path.join(__dirname, 'hospital'));
   const Doctor = sequelize.import(path.join(__dirname, 'doctor'));
 
-
+  ///////
   // Relationships
   ///////
 

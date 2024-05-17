@@ -88,7 +88,7 @@ describe("P5_ORM_BBDD", function () {
     });
 
     it("(1): Comprobando que list_hospitals devuelve los hospitales correctamente...", async function () {
-        this.score = 1;
+        this.score = 0.5;
         if (error_critical) {
             this.msg_err = error_critical;
             should.not.exist(error_critical);
@@ -107,7 +107,7 @@ describe("P5_ORM_BBDD", function () {
     });
 
     it("(2): Comprobando que filterHospitalsByCity devuelve los hospitales correctamente...", async function () {
-        this.score = 1;
+        this.score = 0.5;
         if (error_critical) {
             this.msg_err = error_critical;
             should.not.exist(error_critical);
@@ -128,7 +128,29 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(3): Comprobando que list_hospital_patients devuelve los pacientes correctamente...", async function () {
+    it("(3): Comprobando que filterHospitalsByNumber devuelve los hospitales correctamente...", async function () {
+        this.score = 0.5;
+        if (error_critical) {
+            this.msg_err = error_critical;
+            should.not.exist(error_critical);
+        } else {
+            this.msg_ok = `list_hospitals devuelve los hospitales correctamente`;
+            this.msg_err = `list_hospitals no devuelve los hospitales correctamente`;
+            
+            let hospitals1;
+            let hospitals2;
+
+            try {
+                hospitals1 = await Controller.filterHospitalsByNumber(2);
+                hospitals2 = await Controller.filterHospitalsByNumber(4);
+            } catch (err) { this.msg_err = err }
+
+            should.equal(hospitals1.length, 2);
+            should.equal(hospitals2.length, 4);
+        }
+    });
+
+    it("(4): Comprobando que list_hospital_patients devuelve los pacientes correctamente...", async function () {
         this.score = 1;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -150,7 +172,7 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(4): Comprobando que read devuelve los datos de pacientes correctamente...", async function () {
+    it("(5): Comprobando que read devuelve los datos de pacientes correctamente...", async function () {
         this.score = 1;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -171,7 +193,7 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(5): Comprobando que create crea un paciente correctamente...", async function () {
+    it("(6): Comprobando que create crea un paciente correctamente...", async function () {
         this.score = 1;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -193,7 +215,7 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(6): Comprobando que update actualiza un paciente correctamente...", async function () {
+    it("(7): Comprobando que update actualiza un paciente correctamente...", async function () {
         this.score = 1;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -214,7 +236,7 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(7): Comprobando que delete borrar un paciente correctamente...", async function () {
+    it("(8): Comprobando que delete borrar un paciente correctamente...", async function () {
         this.score = 1;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -233,7 +255,7 @@ describe("P5_ORM_BBDD", function () {
         }
     });
 
-    it("(8): Comprobando que assignDoctor asignar un medico correctamente...", async function () {
+    it("(9): Comprobando que assignDoctor asignar un medico correctamente...", async function () {
         this.score = 1.5;
         if (error_critical) {
             this.msg_err = error_critical;
@@ -270,8 +292,8 @@ describe("P5_ORM_BBDD", function () {
     });
 
 
-    it("(9): Comprobando que showPatientDoctors muestra medicos correctamente...", async function () {
-        this.score = 1.5;
+    it("(10): Comprobando que showPatientDoctors muestra medicos correctamente...", async function () {
+        this.score = 1;
         this.msg_ok = `Muestra medicos correctamente`;
         this.msg_err = `No muestra medicos correctamente`;
         
@@ -287,6 +309,23 @@ describe("P5_ORM_BBDD", function () {
         }
 
         should.equal(doctors.length, 2);
+    });
+
+    it("(11): Comprobando que counting devuelve los datos bien...", async function () {
+        this.score = 1;
+        this.msg_ok = `Muestra el recuento bien`;
+        this.msg_err = `No muestra el recuento bien`;
+        
+        let counting;
+        try {
+            counting = await Controller.counting();
+        } catch (err) { 
+            this.msg_err = err 
+        }
+
+        should.equal(counting?.nHospitals, 5);
+        should.equal(counting?.nPatients, 7);
+        should.equal(counting?.nDoctors, 7);
     });
 
 

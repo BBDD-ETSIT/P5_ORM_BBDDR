@@ -44,10 +44,23 @@
     <div class="row content">
       <div class="col-xl-2 col-lg-3 col-md-3 col-12 patient-filter">
         <div>
+          <h2><b>Inventario de datos</b></h2>
+          <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link" href="/counting" aria-selected="true"><i style="margin-right: 11px;" class="fas fa-list"></i> <b>Listado</b></a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
           <h2><b>Filtros</b></h2>
           <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link" id="filterByCity-tab" data-toggle="tab" href="#filterByCity" role="tab" aria-controls="filterByCity" aria-selected="true"><i style="margin-right: 11px;" class="fas fa-city"></i> <b>Ciudad</b></a>
+              <a class="nav-link" id="filterByCity-tab" data-toggle="tab" href="#filterByCity" role="tab" aria-controls="filterByCity" aria-selected="true"><i style="margin-right: 11px;" class="fas fa-city"></i> <b>Por ciudad</b></a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" id="filterByNumber-tab" data-toggle="tab" href="#filterByNumber" role="tab" aria-controls="filterByNumber" aria-selected="true"><i style="margin-right: 11px;" class="fas fa-circle"></i> <b>Por numero</b></a>
             </li>
           </ul>
         </div>
@@ -70,6 +83,19 @@
               </fieldset>
             </form>
           </div>
+
+          <div class="tab-pane fade" id="filterByNumber" role="tabpanel" aria-labelledby="home-tab">
+            <form method="POST" action="/hospitals/filterByNumber">
+              <fieldset>
+                <div class="form-group">
+                  <label>Maximo</label>
+                  <input type="number" class="form-control" name="limit" placeholder="Introduzca numero" value="0">
+                </div>
+                <button type="submit" class="btn btn-primary filter-button"><b>Limitar</b></button>
+              </fieldset>
+            </form>
+          </div>
+
         </div>
       </div>
 
