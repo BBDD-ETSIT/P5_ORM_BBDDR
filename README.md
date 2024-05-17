@@ -138,12 +138,10 @@ Abra un navegador y vaya a la url "http://localhost:8001" para ver la aplicació
 ## 5. Tareas a realizar
 
 El alumno deberá editar dos ficheros:
-
-- controllers/controller.js. Se le provee un esqueleto con todos los funciones que deberá rellenar. En cada uno de estas funciones se deberá hacer uso del ORM Sequelize para realizar operaciones con la base de datos y devolver un resultado de la operación.
-
 - models/models.js. A parte, deberá editar este fichero, en el espacio habilitado para ello, para añadir asociaciones entre los modelos que se encuentran dentro de la carpetal models:
     - Relacion 1:N entre Hospital y Paciente
     - Relacion N:M entre Paciente y Doctor
+- controllers/controller.js. Se le provee un esqueleto con todos los funciones que deberá rellenar. En cada uno de estas funciones se deberá hacer uso del ORM Sequelize para realizar operaciones con la base de datos y devolver un resultado de la operación.
 
 
 **NOTA: recuerde que las peticiones a las bases de datos son asíncronas por ello los métodos que ejecutan deben ser asincronos (como puede observar en la cabecera de los mismos) y por tanto las operaciones con Sequelize deben ir precedidas del termino await. Por ejemplo, "var pacientes = await Paciente.findAll()" guardaría en la variable "pacientes" el resultado de ejecutar la operación "findAll()"" del modelo Paciente definido con Sequelize**
