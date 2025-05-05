@@ -58,7 +58,7 @@ module.exports = function (models) {
         // Rellene aqui ...
     }
 
-    // Filtra los hospitales por ciudad
+    // Devuelve el número de hospitales, doctores y pacientes
     module.counting = async function () {
         // Rellene aqui ...
     }
